@@ -1,0 +1,42 @@
+<%= form_with(model: visitante) do |form| %>
+  <% if visitante.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(visitante.errors.count, "error") %> prohibited this visitante from being saved:</h2>
+
+      <ul>
+        <% visitante.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nome, style: "display: block" %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div>
+    <%= form.label :CPF, style: "display: block" %>
+    <%= form.text_field :CPF %>
+  </div>
+
+  <div>
+    <%= form.label :RG, style: "display: block" %>
+    <%= form.text_field :RG %>
+  </div>
+
+  <div>
+    <%= form.label :telefone, style: "display: block" %>
+    <%= form.text_field :telefone %>
+  </div>
+
+  <div>
+    <%= form.label :foto, style: "display: block" %>
+    <%= form.text_field :foto %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @setor %>
+
+<div>
+  <%= link_to "Edit this setor", edit_setor_path(@setor) %> |
+  <%= link_to "Back to setors", setors_path %>
+
+  <%= button_to "Destroy this setor", @setor, method: :delete %>
+</div>

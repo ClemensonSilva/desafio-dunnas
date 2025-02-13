@@ -1,6 +1,7 @@
 class SetorsController < ApplicationController
-  before_action :set_setor, only: %i[ show edit update destroy ] :authenticate_user!
-
+  before_action :set_setor, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+  authorize_resource class: true
   # GET /setors or /setors.json
   def index
     @setors = Setor.all
@@ -13,6 +14,7 @@ class SetorsController < ApplicationController
   # GET /setors/new
   def new
     @setor = Setor.new
+    can? :create, @setor
   end
 
   # GET /setors/1/edit

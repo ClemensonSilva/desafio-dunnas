@@ -1,6 +1,6 @@
 class FuncionariosController < ApplicationController
   before_action  :authenticate_user! # verifica se o usuario esta logado
-  before_action authorize_resource class: false # verifica se o usuario tem autoriazacao p execultar as acoes
+  authorize_resource class: true # verifica se o usuario tem autoriazacao p execultar as acoes
 
   # GET /funcionarios or /funcionarios.json
   def index
@@ -14,10 +14,8 @@ class FuncionariosController < ApplicationController
   # GET /funcionarios/new
   def new
     @funcionario = Funcionario.new
-  end
+    can? :create, @funcionario
 
-  # GET /funcionarios/1/edit
-  def edit
   end
 
   # POST /funcionarios or /funcionarios.json
@@ -35,28 +33,7 @@ class FuncionariosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /funcionarios/1 or /funcionarios/1.json
-  def update
-    respond_to do |format|
-      if @funcionario.update(funcionario_params)
-        format.html { redirect_to @funcionario, notice: "Funcionario was successfully updated." }
-        format.json { render :show, status: :ok, location: @funcionario }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @funcionario.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
-  # DELETE /funcionarios/1 or /funcionarios/1.json
-  def destroy
-    @funcionario.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to funcionarios_path, status: :see_other, notice: "Funcionario was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

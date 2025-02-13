@@ -1,6 +1,7 @@
 class UnidadesController < ApplicationController
-  before_action :set_unidade, only: %i[ show edit update destroy ]  :authenticate_user!
-
+  before_action :set_unidade, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+ authorize_resource class: false
   # GET /unidades or /unidades.json
   def index
     @unidades = Unidade.all
@@ -13,6 +14,7 @@ class UnidadesController < ApplicationController
   # GET /unidades/new
   def new
     @unidade = Unidade.new
+    can? :create, @unidade
   end
 
   # GET /unidades/1/edit

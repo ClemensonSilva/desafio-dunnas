@@ -4,8 +4,6 @@ source "https://rubygems.org"
 gem "rails", "~> 8.0.1"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
-# Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
@@ -17,11 +15,13 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 # Use to authentication
-gem 'devise', '~> 4.2'
+gem 'devise', '~> 4.9', '>= 4.9.4'
 # Use to authoritation
-gem 'cancan', '~> 1.6', '>= 1.6.10'
+gem 'cancancan', '~> 3.5'
 # Use to Upload Images
 gem 'carrierwave', '~> 0.11.2'
+# Use postgresql as the database for Active Record
+gem "pg", "~> 1.1"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"

@@ -1,2 +1,17 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<% if current_user %>
+       <p>Hello <%= current_user&.email %></p><br>
+       <p>You are Role: <%= current_user&.role %></p><br>
+       <% if current_user.role %>
+         <p>User Total count <%= User.count %></p>
+       <% end %>
+       <%= button_to "Log Out", destroy_user_session_path, method: :delete %>
+     <% else %>
+       <p>You are not signed in</p>
+       <% if can? :all, Funcionario %>
+         <%= link_to 'New student', new_funcionario_path %>
+       <% end %> <br>
+       <p>
+         <%= button_to "Sign up", new_user_registration_path %><br>
+         <%= button_to "Login", new_user_session_path %>
+       </p>
+    <% end %>

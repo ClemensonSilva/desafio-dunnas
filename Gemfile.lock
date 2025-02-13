@@ -86,7 +86,7 @@ GEM
     brakeman (7.0.0)
       racc
     builder (3.3.0)
-    cancan (1.6.10)
+    cancancan (3.6.1)
     capybara (3.40.0)
       addressable
       matrix
@@ -378,11 +378,11 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   brakeman
-  cancan (~> 1.6, >= 1.6.10)
+  cancancan (~> 3.5)
   capybara
   carrierwave (~> 0.11.2)
   debug
-  devise (~> 4.2)
+  devise (~> 4.9, >= 4.9.4)
   importmap-rails
   jbuilder
   kamal

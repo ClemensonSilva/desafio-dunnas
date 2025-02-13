@@ -1,5 +1,6 @@
 class FuncionariosController < ApplicationController
-  before_action :set_funcionario, only: %i[ show edit update destroy ]
+  before_action  :authenticate_user! # verifica se o usuario esta logado
+  before_action authorize_resource class: false # verifica se o usuario tem autoriazacao p execultar as acoes
 
   # GET /funcionarios or /funcionarios.json
   def index
@@ -65,6 +66,6 @@ class FuncionariosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def funcionario_params
-      params.expect(funcionario: [ :nome, :unidade_id, :setor_id ])
+      params.expect(funcionario: [ :nome,  :setor_id ])
     end
 end

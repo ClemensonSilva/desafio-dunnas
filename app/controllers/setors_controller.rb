@@ -1,5 +1,5 @@
 class SetorsController < ApplicationController
-  before_action :set_setor, only: %i[ show edit update destroy ]
+  before_action :set_setor, only: %i[ show edit update destroy ] :authenticate_user!
 
   # GET /setors or /setors.json
   def index

@@ -10,15 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_11_222114) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_13_132411) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
-
-  create_table "departments", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "funcionarios", force: :cascade do |t|
     t.string "nome"
@@ -26,24 +20,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_11_222114) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["setor_id"], name: "index_funcionarios_on_setor_id"
-  end
-
-  create_table "functionaries", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "institutions", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "sections", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "setors", force: :cascade do |t|
@@ -59,6 +35,19 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_11_222114) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "role"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
   create_table "visitantes", force: :cascade do |t|
     t.string "nome"
     t.string "CPF"
@@ -67,17 +56,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_11_222114) do
     t.string "foto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "visitors", force: :cascade do |t|
-    t.string "CPF"
-    t.string "name"
-    t.string "RG"
-    t.string "telefone"
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["CPF"], name: "index_visitors_on_CPF", unique: true
   end
 
   add_foreign_key "funcionarios", "setors", column: "id"

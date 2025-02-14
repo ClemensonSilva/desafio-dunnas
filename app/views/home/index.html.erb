@@ -4,15 +4,19 @@
        <% if current_user.role %>
          <p>User Total count <%= User.count %></p>
        <% end %>
-       <% if can? :all, Funcionario %>
+       <% if can? :all, Unidade %>
          <%= link_to 'Crie uma nova unidade', new_unidade_path %>
        <% end %> <br>
-        <% if can? :all, Funcionario %>
+        <% if can? :all, Setor %>
           <%= link_to 'Crie um novo setor', new_setor_path %>
         <% end %> <br>
        <% if can? :all, Funcionario %>
          <%= link_to 'Crie um novo funcionario', new_funcionario_path %>
        <% end %> <br>
+        <% if can? :create, Visitante %>
+             <%= link_to 'Crie um novo visitante', new_visitante_path %>
+        <% end %> <br>
+
        <%= button_to "Log Out", destroy_user_session_path, method: :delete %>
      <% else %>
        <p>You are not signed in</p>

@@ -8,6 +8,10 @@ class Ability
     if user.admin?
       can :manage, :all
     end
+    if user.atendente?
+      can :create, Visitante
+    end
+
 
 
     # Define abilities for the user here. For example:

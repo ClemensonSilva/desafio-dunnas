@@ -8,9 +8,12 @@
   <% @visitantes.each do |visitante| %>
     <%= render visitante %>
     <p>
-      <%= link_to "Show this visitante", visitante %>
+      <%= link_to "Mostre todos os visitantes", visitante %>
     </p>
   <% end %>
 </div>
 
 <%= link_to "New visitante", new_visitante_path %>
+<br>
+
+<%= link_to "Retornar ao Menu ", root_path %>

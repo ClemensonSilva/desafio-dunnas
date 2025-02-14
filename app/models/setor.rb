@@ -1,3 +1,3 @@
 class Setor < ApplicationRecord
-  has_many :funcionarios
+  belongs_to :unidade, foreign_key: 'unidade_id'
 end

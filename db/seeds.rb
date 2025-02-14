@@ -9,6 +9,20 @@
 #   end
 
 
-User.create!('email': 'admin@gmail.com', 'password': '123456', 'role':0)
-User.create!('email': 'atendente@gmail.com', 'password': '123456', 'role':1)
-User.create!('email': 'funcionario@gmail.com', 'password': '123456', 'role':2)
+User.create!( email: "admin@gmail.com", password: "123456", role: 0)
+User.create!(email: "atendente@gmail.com", password: "123456", role: 1)
+User.create!(email: "funcionario@gmail.com", password: "123456", role: 2)
+
+
+Unidade.create!(nome: "Unidade Apodi")
+Unidade.create!(nome: "Unidade Assu")
+Unidade.create!(nome: "Unidade Macau")
+
+Setor.create!(nome: "Setor de TI", unidade_id: 1)
+Setor.create!(nome: "Setor de RH", unidade_id: 2)
+Setor.create!(nome: "Setor de Compras", unidade_id: 3)
+Setor.create!(nome: "Setor médico", unidade_id: 3)
+
+
+Funcionario.create!(nome: "Clemenson Silva", setor_id: 1)
+Funcionario.create!(nome: "Maria Silva", setor_id: 2)

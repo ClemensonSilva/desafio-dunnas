@@ -1,6 +1,18 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @funcionario %>
+<p>
+  <strong>Visitas Agendadas:</strong>
+  <%= @funcionario.visitas.where(status:"agendada").count %>
+</p>
+<p>
+  <strong>Visitas Concluídas:</strong>
+  <%= @funcionario.visitas.where(status:"concluidas").count %>
+</p>
+<p>
+  <strong>Visitas Canceladas:</strong>
+  <%= @funcionario.visitas.where(status:"cancelada").count %>
+
 <div>
   <%= link_to "Back to funcionarios", funcionarios_path %>
 

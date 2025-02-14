@@ -4,7 +4,7 @@ class CreateVisita < ActiveRecord::Migration[8.0]
       t.integer :status, default: 0
       t.datetime :data
       t.references :visitante, null: false
-      t.references :funcionario, null: false
+      t.references :funcionario, null: true
 
       t.timestamps
     end

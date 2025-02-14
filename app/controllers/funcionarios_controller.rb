@@ -9,6 +9,7 @@ class FuncionariosController < ApplicationController
 
   # GET /funcionarios/1 or /funcionarios/1.json
   def show
+    @funcionario = Funcionario.find(params[:id])
   end
 
   # GET /funcionarios/new

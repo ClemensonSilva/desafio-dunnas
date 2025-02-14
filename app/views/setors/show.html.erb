@@ -1,7 +1,24 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @setor %>
+<p>
+  <strong>Numero de funcionarios do setor: </strong>
+  <%= @setor.funcionarios.count %>
+</p>
 
+<p>
+  <strong>Visitas Agendadas:</strong>
+  <%= @setor.visitas.where(status:"agendada").count %>
+</p>
+<p>
+  <strong>Visitas Concluídas:</strong>
+  <%= @setor.visitas.where(status:"concluidas").count %>
+</p>
+<p>
+
+  <strong>Visitas Canceladas:</strong>
+  <%= @setor.visitas.where(status:"cancelada").count %>
+</p
 <div>
   <%= link_to "Back to setors", setors_path %> <br>
   <%= link_to "Voltar para o menu ações " , root_path %>

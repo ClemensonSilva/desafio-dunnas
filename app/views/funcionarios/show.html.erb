@@ -10,9 +10,10 @@
   <%= @funcionario.visitas.where(status:"concluidas").count %>
 </p>
 <p>
+
   <strong>Visitas Canceladas:</strong>
   <%= @funcionario.visitas.where(status:"cancelada").count %>
-
+</p>
 <div>
   <%= link_to "Back to funcionarios", funcionarios_path %>
 

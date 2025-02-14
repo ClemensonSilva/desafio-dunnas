@@ -2,8 +2,35 @@
 
 <%= render @unidade %>
 
+<p>
+  <strong>Numero de setores da unidade:</strong>
+  <%= @unidade.setors.count %>
+</p>
+
+<p>
+  <strong>Numero de funcionários da unidade:</strong>
+  <%= @unidade.funcionarios.count %>
+</p>
+
+<p>
+  <strong>Visitas Agendadas:</strong>
+  <%= @unidade.visitas.where(status:"agendada").count %>
+</p>
+<p>
+  <strong>Visitas Concluídas:</strong>
+  <%= @unidade.visitas.where(status:"concluidas").count %>
+</p>
+<p>
+  <strong>Visitas Canceladas:</strong>
+  <%= @unidade.visitas.where(status:"cancelada").count %>
+</p
+
+
+</p>
+
 <div>
   <%= link_to "Back to unidades", unidades_path %>
   <%= link_to "Voltar para o menu ações " , root_path %>
+
 
 </div>

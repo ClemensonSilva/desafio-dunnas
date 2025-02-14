@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :visita
   devise_for :users
   resources :funcionarios
   resources :setors

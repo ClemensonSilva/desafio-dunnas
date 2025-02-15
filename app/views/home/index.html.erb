@@ -10,8 +10,8 @@
         <% if can? :all, Setor %>
           <%= link_to 'Crie um novo setor', new_setor_path %>
         <% end %> <br>
-       <% if can? :all, Funcionario %>
-         <%= link_to 'Crie um novo funcionario', new_funcionario_path %>
+       <% if can? :all, User %>
+         <%= link_to 'Crie um novo funcionario', new_user_registration_path %>
        <% end %> <br>
         <% if can? :create, Visitante %>
              <%= link_to 'Crie um novo visitante', new_visitante_path %>

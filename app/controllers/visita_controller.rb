@@ -1,6 +1,7 @@
 class VisitaController < ApplicationController
   before_action :set_visitum, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
+  authorize_resource class: true
   # GET /visita or /visita.json
   def index
     @visita = Visitum.all

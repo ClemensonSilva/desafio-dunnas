@@ -33,6 +33,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[8.0]
       # t.datetime :locked_at
 
       t.integer :role
+      t.references :setor, null:true
+      t.references :unidade, null:true
       t.timestamps null: false
     end
 

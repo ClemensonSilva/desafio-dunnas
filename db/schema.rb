@@ -36,6 +36,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_14_173143) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.bigint "setor_id", null: true
+    t.bigint "unidade_id", null: true
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -44,6 +46,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_14_173143) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role"
+    t.index ["setor_id"], name: "index_visita_on_setor_id"
+    t.index ["unidade_id"], name: "index_visita_on_unidade_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -51,11 +55,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_14_173143) do
   create_table "visita", force: :cascade do |t|
     t.integer "status", default: 0
     t.datetime "data"
-    t.bigint "visitante_id", null: false
-    t.bigint "funcionario_id", null: false
+    t.bigint "visitante_id", null: true
+    t.bigint "user_id", null: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["funcionario_id"], name: "index_visita_on_funcionario_id"
+    t.index ["user_id"], name: "index_visita_on_user_id"
     t.index ["visitante_id"], name: "index_visita_on_visitante_id"
   end
 
@@ -70,6 +74,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_14_173143) do
   end
 
   add_foreign_key "funcionarios", "setors", column: "id"
-  add_foreign_key "visita", "funcionarios"
+  add_foreign_key "visita", "users"
   add_foreign_key "visita", "visitantes", column: "id"
 end

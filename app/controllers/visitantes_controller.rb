@@ -1,6 +1,7 @@
 class VisitantesController < ApplicationController
   before_action :set_visitante, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
+  authorize_resource class: true
   # GET /visitantes or /visitantes.json
   def index
     @visitantes = Visitante.all

@@ -11,6 +11,9 @@ class Ability
     if user.atendente?
       can :create, Visitante
     end
+    if user.funcionario?
+      can :read, Visita
+    end
 
 
 

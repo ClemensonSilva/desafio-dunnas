@@ -10,6 +10,6 @@ class CreateVisitantes < ActiveRecord::Migration[8.0]
 
       t.timestamps
     end
-    add_foreign_key :visitantes, :visita, column: :id
+    add_foreign_key :visitantes, :visita, column: :visita_id
   end
 end

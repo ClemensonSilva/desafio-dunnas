@@ -1,3 +1,3 @@
 class Visitante < ApplicationRecord
-  has_one :visita
+  has_many :visitas
 end

@@ -4,10 +4,12 @@ class CreateVisita < ActiveRecord::Migration[8.0]
       t.integer :status, default: 0
       t.datetime :data
       t.references :visitante, null: false, foreign_key: true
-      t.references :user, null: true, foreign_key: true #funcionario que recebera a visita
+      t.references :user, null: true, foreign_key: true
+      t.references :setor, null: true, foreign_key: true  #setor que recebera a visita
+      #funcionario que recebera a visita
       t.timestamps
     end
-    add_foreign_key :visita, :visitantes, column: :visitante_id
+    add_foreign_key :visita, :setors, column: :setor_id
     add_foreign_key :visita, :users, column: :user_id
   end
 end

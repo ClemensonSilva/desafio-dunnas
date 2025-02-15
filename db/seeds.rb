@@ -43,4 +43,5 @@ Visita.create!(status: 0, data: "2025-02-28 17:31:43", visitante_id: 1, user_id:
 Visita.create!(status: 0, data: "2025-02-22 17:31:43", visitante_id: 2, user_id: 5)
 Visita.create!(status: 1, data: "2025-02-13 17:31:43", visitante_id: 2, user_id: 3)
 Visita.create!(status: 2, data: "2025-02-10 17:31:43", visitante_id: 3, user_id: 4)
-Visita.create!(status: 0, data: "2025-02-23 17:31:43", visitante_id: 1, user_id: 6)
+Visita.create!(status: 0, data: "2025-02-23 17:31:43", visitante_id: 1, user_id: 5)
+Visita.create!(status: 2, data: "2025-02-28 17:31:43", visitante_id: 1, setor_id: 3)

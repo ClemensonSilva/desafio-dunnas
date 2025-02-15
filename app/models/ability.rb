@@ -10,6 +10,7 @@ class Ability
     end
     if user.atendente?
       can :create, Visitante
+      can :create, Visita, if: user.unidade_id ==
     end
     if user.funcionario?
       can :read, Visita

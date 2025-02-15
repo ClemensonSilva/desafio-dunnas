@@ -5,7 +5,6 @@ class CreateVisita < ActiveRecord::Migration[8.0]
       t.datetime :data
       t.references :visitante, null: false, foreign_key: true
       t.references :user, null: true, foreign_key: true #funcionario que recebera a visita
-
       t.timestamps
     end
     add_foreign_key :visita, :visitantes, column: :visitante_id

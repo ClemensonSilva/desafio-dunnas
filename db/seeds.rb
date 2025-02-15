@@ -22,14 +22,14 @@ Setor.create!(nome: "Setor de Psicologia", unidade_id: 2)
 Setor.create!(nome: "Setor de Compras", unidade_id: 3)
 Setor.create!(nome: "Setor Médico", unidade_id: 3)
 
-User.create!(email: "admin@gmail.com", password: "123456", role: 0)
-User.create!(email: "atendente@gmail.com", password: "123456", role: 1, unidade_id: 1)
+User.create!(nome: "isabel", email: "admin@gmail.com", password: "123456", role: 0)
+User.create!(nome: "rute", email: "atendente@gmail.com", password: "123456", role: 1, unidade_id: 1)
 
-User.create!(email: "funcionario@gmail.com", password: "123456", role: 2, setor_id:1)
-User.create!(email: "funcionario2@gmail.com", password: "123456", role: 2, setor_id:3)
-User.create!(email: "funcionari3@gmail.com", password: "123456", role: 2, setor_id:2)
-User.create!(email: "funcionari4@gmail.com", password: "123456", role: 2, setor_id:3)
-User.create!(email: "funcionari5@gmail.com", password: "123456", role: 2, setor_id:1)
+User.create!(nome: "joao",email: "funcionario@gmail.com", password: "123456", role: 2, setor_id:1)
+User.create!(nome: "maria",email: "funcionario2@gmail.com", password: "123456", role: 2, setor_id:3)
+User.create!(nome: "ana",email: "funcionari3@gmail.com", password: "123456", role: 2, setor_id:2)
+User.create!(nome: "jose",email: "funcionari4@gmail.com", password: "123456", role: 2, setor_id:3)
+User.create!(nome: "miguel",email: "funcionari5@gmail.com", password: "123456", role: 2, setor_id:1)
 
 
 
@@ -42,5 +42,5 @@ Visitante.create!(nome: "Ana Pereira", cpf: "12345678905", rg: "12345678905", te
 Visita.create!(status: 0, data: "2025-02-28 17:31:43", visitante_id: 1, user_id: 3)
 Visita.create!(status: 0, data: "2025-02-22 17:31:43", visitante_id: 2, user_id: 5)
 Visita.create!(status: 1, data: "2025-02-13 17:31:43", visitante_id: 2, user_id: 3)
-Visita.create!(status: 2, data: "2025-02-10 17:31:43", visitante_id: 3,user_id: 4)
+Visita.create!(status: 2, data: "2025-02-10 17:31:43", visitante_id: 3, user_id: 4)
 Visita.create!(status: 0, data: "2025-02-23 17:31:43", visitante_id: 1, user_id: 6)

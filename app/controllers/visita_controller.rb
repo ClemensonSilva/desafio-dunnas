@@ -14,6 +14,7 @@ class VisitaController < ApplicationController
   # GET /visita/new
   def new
     @visitum = Visitum.new
+    can? :create, @visitum
   end
 
   # GET /visita/1/edit

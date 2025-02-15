@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_14_173143) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_15_191858) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -75,7 +75,23 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_14_173143) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "visitas", force: :cascade do |t|
+    t.bigint "visitante_id", null: false
+    t.bigint "user_id"
+    t.bigint "setor_id"
+    t.integer "status"
+    t.date "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["setor_id"], name: "index_visitas_on_setor_id"
+    t.index ["user_id"], name: "index_visitas_on_user_id"
+    t.index ["visitante_id"], name: "index_visitas_on_visitante_id"
+  end
+
   add_foreign_key "funcionarios", "setors", column: "id"
   add_foreign_key "visita", "users"
-  add_foreign_key "visita", "visitantes", column: "visitante_id"
+  add_foreign_key "visita", "visitantes"
+  add_foreign_key "visitas", "setors"
+  add_foreign_key "visitas", "users"
+  add_foreign_key "visitas", "visitantes"
 end

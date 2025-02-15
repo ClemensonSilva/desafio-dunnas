@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Visitas" %>
+
+<h1>Visitas</h1>
+
+<div id="visitas">
+  <% @visitas.each do |visita| %>
+    <%= render visita %>
+    <p>
+      <%= link_to "Show this visita", visita %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New visita", new_visita_path %>

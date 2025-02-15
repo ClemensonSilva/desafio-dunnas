@@ -3,7 +3,8 @@ class Visita < ApplicationRecord
 
   belongs_to :visitante
   belongs_to :user, optional:true, foreign_key:'user_id'  # A visita pertence a um user se ele for um funcionario
-  has_one :setor, through: :user  # A visita pertence a um setor se ele for um atendente
+  has_one :setor, through: :user
+  has_one :unidade, through: :setor# A visita pertence a um setor se ele for um atendente
 
   validates :setor, presence: false, if: :user_atendente
   validates :user, presence: true, if: :user_funcionario
@@ -22,5 +23,5 @@ class Visita < ApplicationRecord
   if user.present? && !user.atendente?
       errors.add(:user, 'deve ser um atendente')
   end
-  end
+end
 end

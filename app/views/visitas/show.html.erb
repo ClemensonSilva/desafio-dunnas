@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @visita %>
+
+<div>
+  <%= link_to "Edit this visita", edit_visita_path(@visita) %> |
+  <%= link_to "Back to visitas", visitas_path %>
+
+  <%= button_to "Destroy this visita", @visita, method: :delete %>
+</div>

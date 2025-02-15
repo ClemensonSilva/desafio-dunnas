@@ -7,14 +7,10 @@ class Ability
     user ||= User.new
     if user.admin?
       can :manage, :all
+
     end
-    if user.atendente?
-      can :create, Visitante
-      can :create, Visita, if: user.unidade_id ==
-    end
-    if user.funcionario?
-      can :read, Visita
-    end
+
+
 
 
 

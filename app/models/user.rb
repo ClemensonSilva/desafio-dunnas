@@ -7,13 +7,13 @@ class User < ApplicationRecord
 
   belongs_to :setor, optional:true, foreign_key: 'setor_id'
   belongs_to :unidade,  optional:true, foreign_key: 'unidade_id'
+  has_many :visitas
+  has_many :visitantes, through: :visitas
+  after_initialize :set_default_role, if: :new_record?
 
   validates :setor, presence: true, if: :funcionario?
   validates :unidade, presence: true, if: :atendente?
 
-  has_many :visitas
-  has_many :visitantes, through: :visitas
-  after_initialize :set_default_role, if: :new_record?
 
 
 

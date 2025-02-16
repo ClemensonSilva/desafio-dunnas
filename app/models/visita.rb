@@ -2,13 +2,16 @@ class Visita < ApplicationRecord
   enum :status  , agendada: 0, realizada: 1, cancelada: 2
 
   belongs_to :visitante
-  belongs_to :user, optional:true, foreign_key:'user_id'  # A visita pertence a um user se ele for um funcionario
+  belongs_to :user, optional:true, foreign_key:'user_id'
   has_one :setor, through: :user
-  has_one :unidade, through: :setor# A visita pertence a um setor se ele for um atendente
+  has_one :unidade, through: :setor
 
   validates :setor, presence: false, if: :user_atendente
   validates :user, presence: true, if: :user_funcionario
   validates :user, presence: false, if: :user_atendente
+
+
+
 
   after_initialize :set_default_status, if: :new_record?
   def set_default_status

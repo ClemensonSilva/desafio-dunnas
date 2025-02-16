@@ -1,6 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <% content_for :title, "Setors" %>
+<div classe="container">
 
 <h1>Setors</h1>
 
@@ -8,9 +9,10 @@
   <% @setors.each do |setor| %>
     <%= render setor %>
     <p>
-      <%= link_to "Mostrar informacoes desse setor", setor %>
+      <%= link_to "Mostrar informacoes desse setor", setor, class:"details-link" %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "Novo Setor", new_setor_path %>
+<%= link_to "Novo Setor", new_setor_path,class:"details-link" %>
+</div>

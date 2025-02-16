@@ -1,3 +1,5 @@
+<div class="container">
+
 <%= form_with(model: setor) do |form| %>
   <% if setor.errors.any? %>
     <div style="color: red">
@@ -10,15 +12,23 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
+      <h2>Novo Setor</h2>
 
   <div>
     <%= form.label :nome, style: "display: block" %>
     <%= form.text_field :nome %>
   </div>
-
+  <%= form.label :unidade, style: "display: block" %>
   <%= form.select  :unidade_id, @unidades.collect { |u| [ u.nome, u.id ] }, { prompt: "Selecione uma unidade" },{ id: "unidade_id" } %>
-
-  <div>
-    <%= form.submit %>
   </div>
+
+  <div class="actions">
+    <%= form.submit  class: "submit-button"%>
+  </div>
+  <br>
+  <%= link_to "Veja todos os setores", setors_path, class: "details-link" %>
+      <%= link_to "Retornar ao Menu", root_path, class: "details-link" %>
+
 <% end %>
+</  div>

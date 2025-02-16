@@ -1,4 +1,5 @@
 <p style="color: green"><%= notice %></p>
+<div classe="container">
 
 <%= render @setor %>
 <p>
@@ -20,7 +21,8 @@
   <%= @setor.visitas.where(status:"cancelada").count %>
 </p
 <div>
-  <%= link_to "Back to setors", setors_path %> <br>
-  <%= link_to "Voltar para o menu ações " , root_path %>
+  <%= link_to "Back to setors", setors_path,class:"details-link" %>
+  <%= link_to "Retornar ao menu ações " , root_path,class:"details-link" %>
 
+</div>
 </div>

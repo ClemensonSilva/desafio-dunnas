@@ -1,4 +1,5 @@
 <p style="color: green"><%= notice %></p>
+<div classe="container">
 
 <%= render @unidade %>
 
@@ -29,8 +30,7 @@
 </p>
 
 <div>
-  <%= link_to "Back to unidades", unidades_path %>
-  <%= link_to "Voltar para o menu ações " , root_path %>
-
-
+  <%= link_to "Back to unidades", unidades_path,class:"details-link" %>
+  <%= link_to "Voltar para o menu ações " , root_path, class:"details-link" %>
 </div>
+<div>

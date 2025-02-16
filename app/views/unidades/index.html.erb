@@ -2,15 +2,17 @@
 
 <% content_for :title, "Unidades" %>
 
+<div classe="container">
 <h1>Unidades</h1>
 
 <div id="unidades">
   <% @unidades.each do |unidade| %>
     <%= render unidade %>
     <p>
-      <%= link_to "Mostrar informacoes da unidade", unidade %>
+      <%= link_to "Mostrar informacoes da unidade", unidade,  class:"details-link" %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "Nova Unidade", new_unidade_path %>
+<%= link_to "Nova Unidade", new_unidade_path, class:"details-link" %>
+</div>

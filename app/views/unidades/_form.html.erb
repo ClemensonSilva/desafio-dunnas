@@ -1,3 +1,5 @@
+<div class="signup-container">
+
 <%= form_with(model: unidade) do |form| %>
   <% if unidade.errors.any? %>
     <div style="color: red">
@@ -10,13 +12,18 @@
       </ul>
     </div>
   <% end %>
+  <h2>Nova Unidade</h2>
 
-  <div>
+  <div class="field">
     <%= form.label :nome, style: "display: block" %>
-    <%= form.text_field :nome %>
+    <%= form.text_field :nome, class: "input-field" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="actions">
+    <%= form.submit class: "submit-button" %>
   </div>
 <% end %>
+<br>
+    <%= link_to "Veja todas as unidades", unidades_path,  class: "details-link" %>
+    <%= link_to "Retornar ao Menu", root_path, class: "details-link" %>
+</div>

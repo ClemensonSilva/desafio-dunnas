@@ -43,4 +43,9 @@
     <%= form.submit   class: "submit-button" %>
   </div>
 <% end %>
+<br>
+<% if current_user.admin? %>
+<%= link_to "Back to visitantes", visitantes_path, class:"details-link" %>
+<% end %>
+<%= link_to "Retornar ao Menu ", root_path, class:"details-link" %>
 </div>

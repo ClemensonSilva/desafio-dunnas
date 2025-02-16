@@ -1,5 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
+<div classe="container">
 <%= render @visitante %>
 
 <p>
@@ -23,5 +24,7 @@
   </p>
 
 <div>
-  <%= link_to "Back to visitantes", visitantes_path %>
+  <%= link_to "Back to visitantes", visitantes_path, class:"details-link" %>
 </div>
+
+<div>

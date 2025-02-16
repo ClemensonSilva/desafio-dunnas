@@ -1,3 +1,5 @@
+<div class="signup-container">
+
 <%= form_with(model: visitante) do |form| %>
   <% if visitante.errors.any? %>
     <div style="color: red">
@@ -10,33 +12,35 @@
       </ul>
     </div>
   <% end %>
+  <h2>Novo visitante</h2>
 
-  <div>
+  <div  class="field">
     <%= form.label :nome, style: "display: block" %>
-    <%= form.text_field :nome %>
+    <%= form.text_field :nome , class: "input-field"%>
   </div>
 
-  <div>
+  <div  class="field">
     <%= form.label :CPF, style: "display: block" %>
-    <%= form.text_field :cpf %>
+    <%= form.text_field :cpf , class: "input-field" %>
   </div>
 
-  <div>
+  <div  class="field">
     <%= form.label :RG, style: "display: block" %>
-    <%= form.text_field :rg %>
+    <%= form.text_field :rg, class: "input-field" %>
   </div>
 
-  <div>
+  <div  class="field">
     <%= form.label :telefone, style: "display: block" %>
-    <%= form.text_field :telefone %>
+    <%= form.text_field :telefone, class: "input-field" %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :foto, style: "display: block" %>
-    <%= form.text_field :foto %>
+    <%= form.text_field :foto, class: "input-field" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div   class= "actions">
+    <%= form.submit   class: "submit-button" %>
   </div>
 <% end %>
+</div>

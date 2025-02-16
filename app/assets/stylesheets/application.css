@@ -8,3 +8,200 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+ .alert {
+   padding: 20px;
+   color: #333; /* Dark text color */
+   border-radius: 5px;
+   text-align: center;
+   margin: 20px 0;
+ }
+
+ body {
+   font-family: 'Arial', sans-serif;
+   background-color: #f0f2f5;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   margin: 0;
+   select {
+     display: block;
+     margin-bottom: 20px;
+     font-weight: bold;
+     color: #555;
+     padding: 10px;
+     border: 1px solid #ccc;
+     border-radius: 4px;
+     font-size: 16px;
+     box-sizing: border-box;
+   }
+
+   select:focus {
+     border-color: #3498db;
+     outline: none;
+     box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+   }
+ }
+
+ .signup-container, .container {
+   max-width: 400px;
+   width: 100%;
+   margin: 20px;
+   padding: 30px;
+   border-radius: 8px;
+   background-color: #fff;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   text-align: center;
+ }
+
+  p {
+   margin: 10px 0;
+   font-size: 16px;
+   color: #555;
+ }
+
+ h2 {
+   margin-bottom: 20px;
+   font-size: 24px;
+   color: #333;
+ }
+
+ .field {
+   margin-bottom: 20px;
+   text-align: left;
+ }
+
+ .field label {
+   display: block;
+   margin-bottom: 5px;
+   font-weight: bold;
+   color: #555;
+ }
+
+ .input-field {
+   width: 100%;
+   padding: 10px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   font-size: 16px;
+   box-sizing: border-box;
+ }
+
+ .input-field:focus {
+   border-color: #3498db;
+   outline: none;
+   box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+ }
+
+ .submit-button {
+   width: 100%;
+   padding: 12px;
+   background-color: #E0115F;
+   border: none;
+   border-radius: 4px;
+   color: white;
+   font-size: 16px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+ }
+
+ .submit-button:hover {
+   background-color: #D10056;
+ }
+
+ .devise-links {
+   margin-top: 20px;
+   font-size: 14px;
+ }
+
+ .devise-links a {
+   color: #3498db;
+   text-decoration: none;
+ }
+
+ .devise-links a:hover {
+   text-decoration: underline;
+ }
+
+ .details-link {
+   display: inline-block;
+   padding: 10px 20px;
+   background-color: #CC342D ; /* Blue background */
+   color: white; /* White text */
+   border-radius: 4px;
+   text-decoration: none; /* Remove underline */
+   transition: background-color 0.3s ease; /* Smooth transition */
+ }
+
+ .details-link:hover {
+   background-color: #E0115F; /* Darker blue on hover */
+ }
+
+
+
+ /* Paragraph Styles */
+ .mb-4 {
+   margin-bottom: 1.5rem; /* 24px */
+ }
+
+ /* Button Container Styles */
+ .button-container {
+   display: flex;
+   justify-content: center;
+   gap: 10px; /* Space between buttons */
+ }
+
+ /* Button Styles */
+ .btn {
+   padding: 10px 20px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   text-decoration: none;
+   font-size: 16px;
+ }
+
+ .custom-btn {
+   background-color: #CC342D; /* Custom red background */
+   color: white; /* White text */
+   transition: background-color 0.3s ease;
+ }
+
+ .custom-btn:hover {
+   background-color: #a82b24; /* Darker red on hover */
+ }
+
+
+ .modal {
+     position: fixed;
+     z-index: 1;
+     padding: 2em;
+
+     /* Centering */
+     left: 50%;
+     top: 50%;
+     transform: translate(-50%, -50%);
+
+     overflow: auto;
+     background-color: rgb(0,0,0);
+     background-color: rgba(255, 255, 255, 0.1);
+     border-radius: 5px;
+     /* Add the drop shadow */
+     box-shadow: 0 0 10px 0 rgba(0,0,0,0.2), 0 5px 10px 0 rgba(0,0,0,0.19);
+ }
+
+ .cancel-button {
+     background-color: #1530ff;
+     font-size: 12px;
+     color: white;
+     padding: 4px 8px;
+     border: none;
+     border-radius: 4px;
+     cursor: pointer;
+     float: right;
+     text-decoration: none;
+ }
+ .cancel-button:hover {
+     background-color: #2640fe;
+ }

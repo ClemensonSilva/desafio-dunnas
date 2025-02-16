@@ -16,15 +16,15 @@ class VisitasController < ApplicationController
   # GET /visitas/new
   def new
     @visita = Visita.new
-    @setores = Setor.where(["unidade_id = ?", current_user.unidade&.id])
-    @funcionarios = User.where(["unidade_id = ? and role = ?", current_user.unidade&.id, 2])
+
+    @setores = Setor.all
+    @funcionarios = User.all
   end
 
   # GET /visitas/1/edit
   def edit
     @setores = Setor.where(["unidade_id = ?", current_user.unidade&.id])
-    @funcionarios = User.where(["unidade_id = ? and role = ?", current_user.unidade&.id, 2])
-
+    @funcionarios = User.where(unidade_id: current_user.unidade&.id, role: "funcionario")
   end
 
   # POST /visitas or /visitas.json
@@ -33,8 +33,12 @@ class VisitasController < ApplicationController
 
     respond_to do |format|
       if @visita.save
-        format.html { redirect_to @visita, notice: "Visita was successfully created." }
-        format.json { render :show, status: :created, location: @visita }
+        if current_user.atendente?
+          format.html { redirect_to root_path, notice: "Visita agendada com sucesso na data " + @visita.data.strftime("%d/%m/%Y") + ". informe ao cliente para chegar com 10 minutos de antecedência ;)" }
+      else
+      format.html { redirect_to @visita, notice: "Visita was successfully created." }
+      format.json { render :show, status: :created, location: @visita }
+        end
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @visita.errors, status: :unprocessable_entity }

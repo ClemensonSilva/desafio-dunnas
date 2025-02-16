@@ -2,7 +2,6 @@
   <% if visita.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(visita.errors.count, "error") %> prohibited this visita from being saved:</h2>
-
       <ul>
         <% visita.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,8 +9,8 @@
       </ul>
     </div>
   <% end %>
-  <%= current_user.unidade&.nome %><br>
 
+  <%= current_user.unidade&.nome %><br>
 
   <div>
     <%= form.label :visitante_id, style: "display: block" %>
@@ -19,18 +18,23 @@
   </div>
   <br>
 
-  <%= form.label  "Setor", style: "display: block" %>
-  <%= form.select  :setor_id, @setores.map { |s| [ s.nome, s.id ] }, { prompt: "Selecione o setor da visita    " },{ id: "unidade_id" } %>
-  <%  if @funcionarios.nil? || @funcionarios.empty? %>
-        <p>Esta unidade nao possui funcionários cadastrados</p>
+  <% if @setores.nil? %>
+    <p>Não há setores nesta unidade</p>
   <% else %>
-        <br><br>
-        <%= form.label  "Funcionario (opcional)", style: "display: block" %>
-        <%= form.select  :user_id,  @funcionarios.map { |s| [ s.nome, s.id ] }, { prompt: "Funcionarios" },{ id: "unidade_id" } %>
-    <% end %>
-    <%= form.label :data, style: "display: block" %>
-    <%= form.date_field :data %>
-  </div>
+    <%= form.label :setor_id, "Setor", style: "display: block" %>
+    <%= form.select :setor_id, @setores.where(["unidade_id = ?", current_user.unidade&.id]).collect { |s| [s.nome, s.id] }, { prompt: "Selecione o setor da visita" }, { id: "setor_id" } %>
+  <% end %>
+  <br><br>
+
+  <% if @funcionarios.nil? %>
+    <p>Não há setores nesta unidade</p>
+  <% else %>
+    <%= form.label "Funcionario (opcional)", style: "display: block" %>
+    <%= form.select :user_id, @funcionarios.where(unidade_id: current_user.unidade&.id, role: "funcionario").collect { |f| [f.nome, f.id] }, { prompt: "Selecione o funcionário" }, { id: "user_id" } %>
+  <% end %>
+
+  <%= form.label :data, style: "display: block" %>
+  <%= form.date_field :data %>
 
   <div>
     <%= form.submit %>

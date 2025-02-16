@@ -26,8 +26,14 @@ class VisitantesController < ApplicationController
 
     respond_to do |format|
       if @visitante.save
-        format.html { redirect_to @visitante, notice: "Visitante was successfully created." }
+        if current_user.atendente?
+          format.html { redirect_to visita, notice: "Visitante was successfully created." }
+          format.json { render :show, status: :created, location: @visitante }
+      else
+        format.html { redirect_to @visitante, notice: "Visitante foi cadastrado com sucesso." }
         format.json { render :show, status: :created, location: @visitante }
+        end
+
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @visitante.errors, status: :unprocessable_entity }
@@ -66,6 +72,6 @@ class VisitantesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def visitante_params
-      params.expect(visitante: [ :nome, :CPF, :RG, :telefone, :foto ])
+      params.expect(visitante: [ :nome, :cpf, :rg, :telefone, :foto ])
     end
 end

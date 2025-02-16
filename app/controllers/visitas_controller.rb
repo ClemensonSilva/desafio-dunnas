@@ -1,5 +1,7 @@
 class VisitasController < ApplicationController
   before_action :set_visita, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+  authorize_resource
 
   # GET /visitas or /visitas.json
   def index
@@ -8,6 +10,7 @@ class VisitasController < ApplicationController
 
   # GET /visitas/1 or /visitas/1.json
   def show
+    authorize! :read, @visita
   end
 
   # GET /visitas/new

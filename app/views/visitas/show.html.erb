@@ -22,7 +22,10 @@
   </p>
 <div>
   <%= link_to "Edit this visita", edit_visita_path(@visita) %> |
-  <%= link_to "Back to visitas", visitas_path %>
+  <% if current_user.funcionario? %>
+      <%= link_to "Volte ao menu", root_path %>
+  <% else %>
+    <%= link_to "Back to visitas", visitas_path %>
+  <% end %>
 
-  <%= button_to "Destroy this visita", @visita, method: :delete %>
 </div>

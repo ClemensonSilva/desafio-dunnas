@@ -1,3 +1,5 @@
+<div class="signup-container">
+
 <%= form_with(model: visita) do |form| %>
   <% if visita.errors.any? %>
     <div style="color: red">
@@ -9,34 +11,50 @@
       </ul>
     </div>
   <% end %>
-
+  <h1>
   <%= current_user.unidade&.nome %><br>
+  </h1>
 
-  <div>
+  <div class="field">
     <%= form.label :visitante_id, style: "display: block" %>
-    <%= form.text_field :visitante_id %>
+    <%= form.text_field :visitante_id ,class: "input-field"%>
   </div>
   <br>
 
   <% if @setores.nil? %>
     <p>Não há setores nesta unidade</p>
   <% else %>
+<div class="field">
     <%= form.label :setor_id, "Setor", style: "display: block" %>
     <%= form.select :setor_id, @setores.where(["unidade_id = ?", current_user.unidade&.id]).collect { |s| [s.nome, s.id] }, { prompt: "Selecione o setor da visita" }, { id: "setor_id" } %>
-  <% end %>
-  <br><br>
+</div>
 
+    <% end %>
+  <br><br>
+  <div class="field">
   <% if @funcionarios.nil? %>
     <p>Não há setores nesta unidade</p>
   <% else %>
     <%= form.label "Funcionario (opcional)", style: "display: block" %>
     <%= form.select :user_id, @funcionarios.where(unidade_id: current_user.unidade&.id, role: "funcionario").collect { |f| [f.nome, f.id] }, { prompt: "Selecione o funcionário" }, { id: "user_id" } %>
   <% end %>
+  </div>
+  <div class="field">
 
   <%= form.label :data, style: "display: block" %>
   <%= form.date_field :data %>
+  </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="actions">
+    <%= form.submit   class: "submit-button"%>
   </div>
 <% end %>
+<br>
+    <% if cannot? :read, Visita %>
+        <%= link_to "Retornar ao Menu ", root_path, class:"details-link" %>
+    <% else %>
+
+        <%= link_to "Back to visitas", visitas_path, class:"details-link" %>
+    <% end %>
+
+</div>

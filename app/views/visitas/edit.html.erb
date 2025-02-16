@@ -2,11 +2,14 @@
 
 <h1>Editing visita</h1>
 
-<%= render "form", visita: @visita %>
+<%= render "form_edit", visita: @visita %>
 
 <br>
 
 <div>
   <%= link_to "Show this visita", @visita %> |
-  <%= link_to "Back to visitas", visitas_path %>
-</div>
+  <% if current_user.funcionario? %>
+    <%= link_to "Volte ao menu", root_path %>
+  <% else %>
+    <%= link_to "Back to visitas", visitas_path %>
+  <% end %></div>

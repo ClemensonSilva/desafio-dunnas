@@ -16,10 +16,15 @@ class VisitasController < ApplicationController
   # GET /visitas/new
   def new
     @visita = Visita.new
+    @setores = Setor.where(["unidade_id = ?", current_user.unidade&.id])
+    @funcionarios = User.where(["unidade_id = ? and role = ?", current_user.unidade&.id, 2])
   end
 
   # GET /visitas/1/edit
   def edit
+    @setores = Setor.where(["unidade_id = ?", current_user.unidade&.id])
+    @funcionarios = User.where(["unidade_id = ? and role = ?", current_user.unidade&.id, 2])
+
   end
 
   # POST /visitas or /visitas.json

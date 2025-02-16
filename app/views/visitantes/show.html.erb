@@ -2,6 +2,26 @@
 
 <%= render @visitante %>
 
+<p>
+    <strong>Cpf:</strong>
+    <%= @visitante.cpf %>
+  </p>
+
+  <p>
+    <strong>Rg:</strong>
+    <%= @visitante.rg %>
+  </p>
+
+  <p>
+    <strong>Telefone:</strong>
+    <%= @visitante.telefone %>
+  </p>
+
+  <p>
+    <strong>Foto:</strong>
+    <%= @visitante.foto %>
+  </p>
+
 <div>
   <%= link_to "Back to visitantes", visitantes_path %>
 </div>

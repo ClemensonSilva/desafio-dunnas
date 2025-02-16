@@ -16,10 +16,7 @@
     <%= form.text_field :nome %>
   </div>
 
-  <div>
-    <%= form.label :unit_id, style: "display: block" %>
-    <%= form.number_field :unit_id %>
-  </div>
+  <%= form.select  :unidade_id, @unidades.collect { |u| [ u.nome, u.id ] }, { prompt: "Selecione uma unidade" },{ id: "unidade_id" } %>
 
   <div>
     <%= form.submit %>

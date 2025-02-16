@@ -10,23 +10,24 @@
       </ul>
     </div>
   <% end %>
+  <%= current_user.unidade&.nome %><br>
+
 
   <div>
     <%= form.label :visitante_id, style: "display: block" %>
     <%= form.text_field :visitante_id %>
   </div>
+  <br>
 
-  <div>
-    <%= form.label :user_id, "Funcionario (opcional)", style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.label :setor_id,"Setor da visita", style: "display: block" %>
-    <%= form.number_field :setor_id %>
-  </div>
-
-  <div>
+  <%= form.label  "Setor", style: "display: block" %>
+  <%= form.select  :setor_id, @setores.map { |s| [ s.nome, s.id ] }, { prompt: "Selecione o setor da visita    " },{ id: "unidade_id" } %>
+  <%  if @funcionarios.nil? || @funcionarios.empty? %>
+        <p>Esta unidade nao possui funcionários cadastrados</p>
+  <% else %>
+        <br><br>
+        <%= form.label  "Funcionario (opcional)", style: "display: block" %>
+        <%= form.select  :user_id,  @funcionarios.map { |s| [ s.nome, s.id ] }, { prompt: "Funcionarios" },{ id: "unidade_id" } %>
+    <% end %>
     <%= form.label :data, style: "display: block" %>
     <%= form.date_field :data %>
   </div>

@@ -14,6 +14,7 @@ class SetorsController < ApplicationController
   # GET /setors/new
   def new
     @setor = Setor.new
+    @unidades = Unidade.all
     can? :create, @setor
   end
 

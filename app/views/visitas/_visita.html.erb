@@ -1,22 +1,13 @@
 <div id="<%= dom_id visita %>">
   <p>
     <strong>Visitante:</strong>
-    <%= visita.visitante_id %>
+    <%= visita.visitante.nome %>
   </p>
 
   <p>
-    <strong>User:</strong>
-    <%= visita.user_id %>
+    <strong>Funcionário :</strong>
+    <%= visita.user&.nome %>
   </p>
 
-  <p>
-    <strong>Status:</strong>
-    <%= visita.status %>
-  </p>
-
-  <p>
-    <strong>Data:</strong>
-    <%= visita.data %>
-  </p>
 
 </div>

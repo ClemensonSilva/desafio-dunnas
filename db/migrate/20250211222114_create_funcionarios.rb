@@ -6,7 +6,7 @@ class CreateFuncionarios < ActiveRecord::Migration[8.0]
 
       t.timestamps
     end
-    add_foreign_key :funcionarios, :setors, column: :id
+    add_foreign_key :funcionarios, :setors, column: :setor_id
   end
 end
 

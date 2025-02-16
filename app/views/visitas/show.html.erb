@@ -1,7 +1,26 @@
 <p style="color: green"><%= notice %></p>
+<h1>Visita</h1>
 
 <%= render @visita %>
 
+<p>
+  <strong>Unidade:</strong>
+  <%= @visita.unidade&.nome %>
+</p>
+<p>
+  <strong>Setor:</strong>
+  <%= @visita.setor&.nome %>
+</p>
+
+  <p>
+    <strong>Status:</strong>
+    <%= @visita.status %>
+  </p>
+
+  <p>
+    <strong>Data:</strong>
+    <%= @visita.data %>
+  </p>
 <div>
   <%= link_to "Edit this visita", edit_visita_path(@visita) %> |
   <%= link_to "Back to visitas", visitas_path %>

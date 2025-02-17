@@ -2,13 +2,17 @@
 
 <% content_for :title, "Visitas" %>
 
-<h1>Visitas</h1>
+<div classe="container">
 
 <div id="visitas">
   <% @visitas.each do |visita| %>
     <%= render visita %>
-
+    <p>
+      <%= link_to "Mostrar detalhes do visitante", visita, class:"details-link" %>
+    </p>
   <% end %>
-</div>
+<%= link_to "New visita", new_visita_path, class:"details-link" %>
+<%= link_to "Retornar ao Menu ", root_path ,  class:"details-link"%>
 
-<%= link_to "New visita", new_visita_path %>
+</div>
+</div>

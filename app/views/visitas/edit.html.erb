@@ -1,14 +1,5 @@
 <% content_for :title, "Editing " %>
 
-
 <%= render "form_edit", visita: @visita %>
 
 <br>
-
-<div>
-  <%= link_to "Show this visita", @visita, class:"details-link" %>
-  <% if current_user.funcionario? %>
-    <%= link_to "Volte ao menu", root_path,class:"details-link" %>
-  <% else %>
-<%= link_to "Back to visitas", visitas_path,class:"details-link" %>
-  <% end %></div>

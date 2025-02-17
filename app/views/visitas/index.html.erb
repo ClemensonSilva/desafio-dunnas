@@ -8,7 +8,7 @@
   <% @visitas.each do |visita| %>
     <%= render visita %>
     <p>
-      <%= link_to "Mostrar detalhes do visitante", visita, class:"details-link" %>
+      <%= link_to "Mostrar detalhes da visita ", visita, class:"details-link" %>
     </p>
   <% end %>
 <%= link_to "New visita", new_visita_path, class:"details-link" %>

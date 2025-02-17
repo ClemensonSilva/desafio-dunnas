@@ -1,0 +1,43 @@
+
+<div class="container stats">
+  <% if current_user.admin? %>
+      <h1>Visão geral da instituição</h1>
+    <div class="stats-item">
+      <strong>Total de Unidades:</strong>
+      <span><%= @total_unidades %></span>
+    </div>
+    <div class="stats-item">
+      <strong>Total de Setores:</strong>
+      <span><%= @total_usuario %></span>
+    </div>
+
+    <div class="stats-item">
+      <strong>Total de Funcionários:</strong>
+      <span><%= @total_setores %></span>
+    </div>
+    <div class="stats-item">
+      <strong>Total de Visitantes cadastrados:</strong>
+      <span><%= @total_visitantes %></span>
+    </div>
+    <div class="stats-item">
+      <strong>Visitas criadas</strong>
+      <span><%=  @total_visitas %></span>
+    </div>
+    <div class="stats-item">
+      <strong>Visitas agendadas:</strong>
+      <span><%=  @visitas_agendadas %></span>
+    </div>
+    <div class="stats-item">
+      <strong>Visitas realizadas:</strong>
+      <span><%=  @visitas_realizadas %></span>
+    </div>
+    <div class="stats-item">
+      <strong>Visitas agendadas:</strong>
+      <span><%=  @visitas_agendadas %></span>
+    </div>
+<br>
+    <%= link_to "Retornar ao Menu", root_path, class: "details-link" %>
+
+  <% end %>
+
+</div>

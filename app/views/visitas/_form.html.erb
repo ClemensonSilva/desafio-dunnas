@@ -1,5 +1,4 @@
 <div class="signup-container">
-
 <%= form_with(model: visita) do |form| %>
   <% if visita.errors.any? %>
     <div style="color: red">
@@ -9,57 +8,69 @@
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
+      <%= link_to "Tente novamente", new_visita_path, class: "details-link" %>
+
     </div>
-  <% end %>
+
+  <% else %>
+
   <h1>
-  <%= current_user.unidade&.nome %><br>
+    <%= current_user.unidade&.nome %><br>
   </h1>
 
+    <div class="field">
+      <%= form.label :visitante_id, "Verifique se o visitante ja está cadastrado",style: "display: block" %>
+      <%= form.select :setor_id, @visitantes.collect { |v| [v.nome, v.id] }, { prompt: "Visitante" }, { id: "setor_id" } %>
+    </div>
+
+
   <div class="field">
-    <%= form.label :visitante_id, style: "display: block" %>
-    <%= form.text_field :visitante_id ,class: "input-field"%>
+    <%= link_to "Criar visitante", new_visitante_path, class: "details-link" %>
   </div>
+
   <br>
 
   <% if @setores.nil? %>
     <p>Não há setores nesta unidade</p>
   <% else %>
-   <div class="field">
-       <%= form.label :setor_id, "Setor", style: "display: block" %>
-       <% if current_user.admin? %>
-           <%= form.select :setor_id, @setores.collect { |s| [s.nome, s.id] }, { prompt: "Selecione o setor da visita" }, { id: "setor_id" } %>
-       <% else%>
-   <%= form.select :setor_id, @setores.where(["unidade_id = ?", current_user.unidade&.id]).collect { |s| [s.nome, s.id] }, { prompt: "Selecione o setor da visita" }, { id: "setor_id" } %>
-   <% end %>
-   </div>
-    <% end %>
-
+    <div class="field">
+      <%= form.label :setor_id, "Setor", style: "display: block" %>
+      <% if current_user.admin? %>
+        <%= form.select :setor_id, @setores.collect { |s| [s.nome, s.id] }, { prompt: "Selecione o setor da visita" }, { id: "setor_id" } %>
+      <% else %>
+        <%= form.select :setor_id, @setores.where(["unidade_id = ?", current_user.unidade&.id]).collect { |s| [s.nome, s.id] }, { prompt: "Selecione o setor da visita" }, { id: "setor_id" } %>
+      <% end %>
+    </div>
+  <% end %>
 
   <br><br>
-  <div class="field">
-  <% if @funcionarios.nil? %>
-    <p>Não há setores nesta unidade</p>
-  <% else %>
-    <%= form.label "Funcionario (opcional)", style: "display: block" %>
-    <%= form.select :user_id, @funcionarios.where(unidade_id: current_user.unidade&.id, role: "funcionario").collect { |f| [f.nome, f.id] }, { prompt: "Selecione o funcionário" }, { id: "user_id" } %>
-  <% end %>
-  </div>
-  <div class="field">
 
-  <%= form.label :data, style: "display: block" %>
-  <%= form.date_field :data %>
+
+  <div class="field">
+    <% if @funcionarios.nil? %>
+      <p>Não há setores nesta unidade</p>
+    <% else %>
+      <%= form.label "Funcionario (opcional)", style: "display: block" %>
+      <%= form.select :user_id, @funcionarios.where(unidade_id: current_user.unidade&.id, role: "funcionario").collect { |f| ["#{f.nome} - #{f.setor&.nome}", f.id] }, { prompt: "Selecione o funcionário" }, { id: "user_id" } %>
+    <% end %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :data, style: "display: block" %>
+    <%= form.date_field :data %>
   </div>
 
   <div class="actions">
-    <%= form.submit   class: "submit-button"%>
+    <%= form.submit class: "submit-button" %>
   </div>
-<% end %>
 <br>
-    <% if cannot? :read, Visita %>
-        <%= link_to "Retornar ao Menu ", root_path, class:"details-link" %>
-    <% else %>
+<div class="field">
 
-        <%= link_to "Back to visitas", visitas_path, class:"details-link" %>
-    <% end %>
+  <%= link_to "Retornar ao Menu", root_path, class: "details-link" %>
+  <%= link_to "Back to visitas", visitas_path, class: "details-link" %>
+<% end %>
+</div>
 
 </div>
+<% end %>

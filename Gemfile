@@ -19,7 +19,9 @@ gem 'devise', '~> 4.9', '>= 4.9.4'
 # Use to authoritation
 gem 'cancancan', '~> 3.5'
 # Use to Upload Images
-gem 'carrierwave', '~> 0.11.2'
+gem 'carrierwave', '~> 3.1', '>= 3.1.1'
+# Use to Upload Images to AWS S3
+gem 'fog-aws', '~> 3.30'
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 

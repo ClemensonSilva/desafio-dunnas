@@ -72,6 +72,7 @@ class VisitantesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def visitante_params
+      params.require(:visitante).permit(:nome, :cpf, :rg, :telefone, :foto)
       params.expect(visitante: [ :nome, :cpf, :rg, :telefone, :foto ])
     end
 end

@@ -18,8 +18,10 @@
   </p>
 
   <p>
-    <strong>Foto:</strong>
-    <%= @visitante.foto %>
+ <strong>Foto:</strong>  </p>
+
+  <p>
+    <%= image_tag @visitante.foto.thumb.url %>
   </p>
 
 <div>

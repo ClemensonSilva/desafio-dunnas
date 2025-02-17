@@ -84,6 +84,6 @@ class VisitasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def visita_params
-      params.expect(visita: [ :visitante_id, :user_id, :status, :data ])
+      params.expect(visita: [ :visitante_id, :user_id, :status, :data, :setor_id, :unidade_id ])
     end
 end

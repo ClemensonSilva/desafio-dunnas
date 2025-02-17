@@ -6,16 +6,18 @@ class Ability
   def initialize(user)
     user ||= User.new
     if user.admin?
-      can :manage, :all
-      cannot :create , Visita
+      can :manage, :all # O admin pode fazer tudo
     elsif user.atendente?
       can :create, Visita do |visita|
-        user.unidade == visita.unidade
+        user.unidade == visita.unidade # O atendente só pode agendar visitas para a sua unidade
       end
+      can :read, Visita
       can :create, Visitante
     elsif user.funcionario?
       can :read, Visita
-      can :update, Visita
+      can :update, Visita do |visita|
+        user.id == visita.user_id # O funcionário só pode editar visitas que foram agendadas com ele
+      end
     end
 
 

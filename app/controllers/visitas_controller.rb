@@ -5,7 +5,15 @@ class VisitasController < ApplicationController
 
   # GET /visitas or /visitas.json
   def index
-    @visitas = Visita.all
+    if current_user.admin?
+      @visitas = Visita.all
+    elsif current_user.atendente?
+      if @visitas.nil?
+        redirect_to new_visita_path, notice: "Nenhuma visita agendada para a sua unidade" # Se não houver visitas agendadas, redireciona para a página de agendamento
+      elsif
+        @visitas = Visita.where(unidade_id: current_user.unidade&.id) # O atendente só pode ver as visitas da sua unidade
+      end
+    end
   end
 
   # GET /visitas/1 or /visitas/1.json
@@ -23,8 +31,7 @@ class VisitasController < ApplicationController
 
   # GET /visitas/1/edit
   def edit
-    @setores = Setor.where(["unidade_id = ?", current_user.unidade&.id])
-    @funcionarios = User.where(unidade_id: current_user.unidade&.id, role: "funcionario")
+    @visitas =Visita.statuses
   end
 
   # POST /visitas or /visitas.json

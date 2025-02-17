@@ -6,7 +6,7 @@ class Visita < ApplicationRecord
   has_one :setor, through: :user
   has_one :unidade, through: :setor
 
-  validates :setor, presence: false, if: :user_atendente
+  validates :setor, presence: false, if: :user_atendente # Não é nescessário indicar um setor no form caso o user seja um atendente
   validates :user, presence: true, if: :user_funcionario
   validates :user, presence: false, if: :user_atendente
 
@@ -24,7 +24,12 @@ class Visita < ApplicationRecord
   end
   def user_atendente
   if user.present? && !user.atendente?
-      errors.add(:user, 'deve ser um atendente')
+       errors.add(:user, 'deve ser um atendente')
+  end
+  end
+  def user_admin
+  if user.present? && !user.admin?
+      errors.add(:user, 'deve ser um admin')
   end
 end
 end

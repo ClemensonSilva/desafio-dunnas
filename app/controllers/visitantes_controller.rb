@@ -27,7 +27,7 @@ class VisitantesController < ApplicationController
     respond_to do |format|
       if @visitante.save
         if current_user.atendente?
-          format.html { redirect_to visita, notice: "Visitante was successfully created." }
+          format.html { redirect_to new_visita_path, notice: "Visitante was successfully created." }
           format.json { render :show, status: :created, location: @visitante }
       else
         format.html { redirect_to @visitante, notice: "Visitante foi cadastrado com sucesso." }

@@ -68,6 +68,6 @@ class SetorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def setor_params
-      params.expect(setor: [ :nome, :unit_id ])
+      params.expect(setor: [ :nome, :unidade_id ])
     end
 end

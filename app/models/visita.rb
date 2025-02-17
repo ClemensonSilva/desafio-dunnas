@@ -7,19 +7,31 @@ class Visita < ApplicationRecord
   has_one :unidade, through: :setor
 
   validates :setor, presence: false, if: :user_atendente # Não é nescessário indicar um setor no form caso o user seja um atendente
-  validates :user, presence: true, if: :user_funcionario
-  validates :user, presence: false, if: :user_atendente
 
-
+  validates :user, presence: true
+  validates :visitante, presence: true
+  validates :data, presence: true
+  validate :data_apos_hoje
+  validate :user_pertence_setor
 
   after_initialize :set_default_status, if: :new_record?
   def set_default_status
     self.status ||= :agendada
   end
 
+  def data_apos_hoje
+    if data.present? && data < Date.today
+      errors.add(:data, 'deve ser após a data de hoje: ' + Date.today.strftime("%d/%m/%Y"))
+    end
+  end
+  def user_pertence_setor
+    if user.present?  && user.setor != setor
+      errors.add(:user, 'não pertence ao setor indicado')
+    end
+  end
   def user_funcionario
     if user.present? && !user.funcionario?
-        errors.add(:user, 'deve ser um funcionário')
+        errors.add(:user, 'deve ser um funcionário ')
     end
   end
   def user_atendente

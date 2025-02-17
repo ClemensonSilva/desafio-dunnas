@@ -9,6 +9,7 @@ class UnidadesController < ApplicationController
 
   # GET /unidades/1 or /unidades/1.json
   def show
+    
   end
 
   # GET /unidades/new

@@ -16,6 +16,27 @@ class VisitasController < ApplicationController
     end
   end
 
+# Método de busca de visitantes para futuro commit, infelizmente não consegui implementar a tempo
+  def informacoes
+
+    @visitantes = Visitante.all
+    @visitas = Visita.all
+    @setores = Setor.all
+    @usuario = User.all
+    @unidades = Unidade.all
+
+    @total_unidades      = @unidades.count
+    @total_usuario       = @usuario.count
+    @total_setores       = @setores.count
+    @total_visitantes    = @visitantes.count
+    @total_visitas       = @visitas.count
+
+    @visitas_agendadas     = @visitas.where(status: "agendada").count
+    @visitas_realizadas     = @visitas.where(status: "realizada").count
+
+    @unidades = Unidade.all
+  end
+
   # GET /visitas/1 or /visitas/1.json
   def show
     authorize! :read, @visita
@@ -24,7 +45,7 @@ class VisitasController < ApplicationController
   # GET /visitas/new
   def new
     @visita = Visita.new
-
+    @visitantes = Visitante.all
     @setores = Setor.all
     @funcionarios = User.all
   end
@@ -56,8 +77,8 @@ class VisitasController < ApplicationController
   # PATCH/PUT /visitas/1 or /visitas/1.json
   def update
     respond_to do |format|
-      if @visita.update(visita_params)
-        format.html { redirect_to @visita, notice: "Visita was successfully updated." }
+      if @visita.update(params.expect(visita: [:status]))
+        format.html { redirect_to @visita, notice: "Registro de finalização da visita feito com sucesso." }
         format.json { render :show, status: :ok, location: @visita }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -83,6 +104,9 @@ class VisitasController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
+    def visita_realizada_params
+      params.require(:visita).permit(:status) # Permitir o campo status
+    end
     def visita_params
       params.expect(visita: [ :visitante_id, :user_id, :status, :data, :setor_id, :unidade_id ])
     end

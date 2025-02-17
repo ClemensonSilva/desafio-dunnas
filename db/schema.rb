@@ -10,23 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_15_191858) do
+ActiveRecord::Schema[8.0].define(version: 2025031211116) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
-  create_table "funcionarios", force: :cascade do |t|
-    t.string "nome"
-    t.bigint "setor_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["setor_id"], name: "index_funcionarios_on_setor_id"
-  end
-
   create_table "setors", force: :cascade do |t|
     t.string "nome"
-    t.integer "unidade_id"
+    t.bigint "unidade_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["unidade_id"], name: "index_setors_on_unidade_id"
   end
 
   create_table "unidades", force: :cascade do |t|
@@ -36,43 +29,33 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_15_191858) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "nome", null: false
-    t.bigint "setor_id"
-    t.bigint "unidade_id"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "nome"
+    t.integer "role", default: 0, null: false
+    t.bigint "setor_id"
+    t.bigint "unidade_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["setor_id"], name: "index_visita_on_setor_id"
-    t.index ["unidade_id"], name: "index_visita_on_unidade_id"
-  end
-
-  create_table "visita", force: :cascade do |t|
-    t.integer "status", default: 0
-    t.datetime "data"
-    t.bigint "visitante_id"
-    t.bigint "user_id"
-    t.integer "setor_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_visita_on_user_id"
-    t.index ["visitante_id"], name: "index_visita_on_visitante_id"
+    t.index ["setor_id"], name: "index_users_on_setor_id"
+    t.index ["unidade_id"], name: "index_users_on_unidade_id"
   end
 
   create_table "visitantes", force: :cascade do |t|
-    t.string "nome"
-    t.string "cpf"
-    t.string "rg"
-    t.string "telefone"
-    t.string "foto"
+    t.string "nome", null: false
+    t.string "cpf", null: false
+    t.string "rg", null: false
+    t.string "telefone", null: false
+    t.string "foto", null: false
+    t.bigint "visita_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["visita_id"], name: "index_visitantes_on_visita_id"
   end
 
   create_table "visitas", force: :cascade do |t|
@@ -88,9 +71,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_15_191858) do
     t.index ["visitante_id"], name: "index_visitas_on_visitante_id"
   end
 
-  add_foreign_key "funcionarios", "setors", column: "id"
-  add_foreign_key "visita", "users"
-  add_foreign_key "visita", "visitantes"
   add_foreign_key "visitas", "setors"
   add_foreign_key "visitas", "users"
   add_foreign_key "visitas", "visitantes"

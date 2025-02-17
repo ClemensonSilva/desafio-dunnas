@@ -12,12 +12,12 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
       <h2>Novo Setor</h2>
 
-  <div>
+  <div class="field">
     <%= form.label :nome, style: "display: block" %>
-    <%= form.text_field :nome %>
+    <%= form.text_field :nome,  class: "input-field" %>
+  <div>
   </div>
   <%= form.label :unidade, style: "display: block" %>
   <%= form.select  :unidade_id, @unidades.collect { |u| [ u.nome, u.id ] }, { prompt: "Selecione uma unidade" },{ id: "unidade_id" } %>

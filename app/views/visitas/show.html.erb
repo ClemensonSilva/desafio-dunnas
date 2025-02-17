@@ -19,7 +19,7 @@
     <%= @visita.data %>
   </p>
 <div>
-  <%= link_to "Edit this visita", edit_visita_path(@visita) , class:"details-link"%>
+  <%= link_to "Visita realizada? Clique Aqui", edit_visita_path(@visita) , class:"details-link"%>
   <% if current_user.funcionario? %>
       <%= link_to "Volte ao menu", root_path, class:"details-link" %>
   <% else %>

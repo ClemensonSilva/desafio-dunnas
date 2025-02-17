@@ -1,0 +1,27 @@
+<div class="signup-container">
+    <h1>Visita </h1>
+
+<%= form_with(model: visita) do |form| %>
+  <% if visita.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(visita.errors.count, "error") %> prohibited this visita from being saved:</h2>
+      <ul>
+        <% visita.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= current_user.unidade&.nome %><br>
+
+  <div class="field">
+
+
+  <div>
+
+  <div>
+    <%= form.submit class:"details-link" %>
+  </div>
+<% end %>
+</div>

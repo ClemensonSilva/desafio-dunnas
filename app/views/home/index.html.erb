@@ -31,7 +31,6 @@
               <% end %>
               <% if can? :create, Visitante %>
                 <%= button_to 'Criar Novo Visitante', new_visitante_path, method: :get, class: "btn mx-1", style: "background-color: #CC342D; color: white;" %>
-                <br>
               <% end %>
               <% if can? :read, Visitante %>
                 <%= button_to 'Menu de Visitantes', visitantes_path, method: :get, class: "btn mx-1", style: "background-color: #CC342D; color: white;" %>

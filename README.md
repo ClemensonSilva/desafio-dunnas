@@ -51,13 +51,16 @@ Sistema desenvolvido em Ruby on Rails para registrar e gerenciar visitantes em m
 - Bootstrap 5
 - HTML5/CSS3
 
+## Diagrama do Banco de Dados
+![Diagrama do Banco de Dados](/docs/images/diagram_db.png)
+
 ## 🚀 Instalação
 
 ### Pré-requisitos
 - Ruby 3.x
 - Rails 7.x
 - PostgreSQL ou MySQL
-- Node.js```
+- Node.js
 - Yarn
 
 ```bash
@@ -83,9 +86,6 @@ rails server
 ```
 
 # Capturas de Tela
-
-## Diagrama do Banco de Dados
-![Diagrama do Banco de Dados](/docs/images/diagram_db.png)
 
 ## Login
 ![Login](/docs/images/Login.png)

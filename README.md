@@ -57,7 +57,7 @@ Sistema desenvolvido em Ruby on Rails para registrar e gerenciar visitantes em m
 - Ruby 3.x
 - Rails 7.x
 - PostgreSQL ou MySQL
-- Node.js
+- Node.js```
 - Yarn
 
 ```bash

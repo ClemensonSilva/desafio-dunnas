@@ -5,6 +5,5 @@ class CreateSetors < ActiveRecord::Migration[8.0]
       t.references :unidade, null: false
       t.timestamps
     end
-    add_foreign_key :setors, :unidades, column: :unidade_id
   end
 end

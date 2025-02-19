@@ -33,15 +33,15 @@ User.create!(nome: "miguel",email: "funcionari5@gmail.com", password: "123456", 
 
 
 
-Visitante.create!(nome: "Marcos Silva", cpf: "12345678901", rg: "12345678901", telefone: "12345678901", foto: "marcosfoto.jpg")
-Visitante.create!(nome: "Maria Silva", cpf: "12345678902", rg: "12345678902", telefone: "12345678902", foto: "mariafoto.jpg")
-Visitante.create!(nome: "João Pereira", cpf: "12345678903", rg: "12345678903", telefone: "12345678903", foto: "joaofoto.jpg")
-Visitante.create!(nome: "José Pereira", cpf: "12345678904", rg: "12345678904", telefone: "12345678904", foto: "josefoto.jpg")
-Visitante.create!(nome: "Ana Pereira", cpf: "12345678905", rg: "12345678905", telefone: "12345678905", foto: "anafoto.jpg")
+#Visitante.create!(nome: "Marcos Silva", cpf: "12345678901", rg: "12345678901", telefone: "12345678901", foto: "public/uploads/visitante/foto/cracha_6e84f6540f.jpg")
+#Visitante.create!(nome: "Maria Silva", cpf: "12345678902", rg: "12345678902", telefone: "12345678902", foto: "mariafoto.jpg")
+#Visitante.create!(nome: "João Pereira", cpf: "12345678903", rg: "12345678903", telefone: "12345678903", foto: "joaofoto.jpg")
+#Visitante.create!(nome: "José Pereira", cpf: "12345678904", rg: "12345678904", telefone: "12345678904", foto: "josefoto.jpg")
+#Visitante.create!(nome: "Ana Pereira", cpf: "12345678905", rg: "12345678905", telefone: "12345678905", foto: "anafoto.jpg")
 
-Visita.create!(status: 0, data: "2025-02-28 17:31:43", visitante_id: 1, user_id: 3)
-Visita.create!(status: 0, data: "2025-02-22 17:31:43", visitante_id: 2, user_id: 5)
-Visita.create!(status: 1, data: "2025-02-13 17:31:43", visitante_id: 2, user_id: 3)
-Visita.create!(status: 2, data: "2025-02-10 17:31:43", visitante_id: 3, user_id: 4)
-Visita.create!(status: 0, data: "2025-02-23 17:31:43", visitante_id: 1, user_id: 5)
-Visita.create!(status: 2, data: "2025-02-28 17:31:43", visitante_id: 1, setor_id: 3)
+#Visita.create!(status: 0, data: "2025-02-28 17:31:43", visitante_id: 1, user_id: 3)
+#Visita.create!(status: 0, data: "2025-02-22 17:31:43", visitante_id: 2, user_id: 5)
+#Visita.create!(status: 1, data: "2025-02-13 17:31:43", visitante_id: 2, user_id: 3)
+#Visita.create!(status: 2, data: "2025-02-10 17:31:43", visitante_id: 3, user_id: 4)
+#Visita.create!(status: 0, data: "2025-02-23 17:31:43", visitante_id: 1, user_id: 5)
+#Visita.create!(status: 2, data: "2025-02-28 17:31:43", visitante_id: 1, setor_id: 3)

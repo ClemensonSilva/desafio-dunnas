@@ -52,10 +52,8 @@ ActiveRecord::Schema[8.0].define(version: 2025031211116) do
     t.string "rg", null: false
     t.string "telefone", null: false
     t.string "foto", null: false
-    t.bigint "visita_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["visita_id"], name: "index_visitantes_on_visita_id"
   end
 
   create_table "visitas", force: :cascade do |t|
@@ -71,6 +69,7 @@ ActiveRecord::Schema[8.0].define(version: 2025031211116) do
     t.index ["visitante_id"], name: "index_visitas_on_visitante_id"
   end
 
+  add_foreign_key "setors", "unidades"
   add_foreign_key "visitas", "setors"
   add_foreign_key "visitas", "users"
   add_foreign_key "visitas", "visitantes"

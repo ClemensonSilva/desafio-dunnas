@@ -1,5 +1,4 @@
 class Visitante < ApplicationRecord
-  has_many :visitas
 
   validates :nome, presence: true
   validates :rg, presence: true, uniqueness: true

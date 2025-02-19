@@ -6,10 +6,8 @@ class CreateVisitantes < ActiveRecord::Migration[8.0]
       t.string :rg,   null: false
       t.string :telefone,  null: false
       t.string :foto, null: false
-      t.references :visita, null: true, foreign_key: true
 
       t.timestamps
     end
-    add_foreign_key :visitantes, :visita, column: :visita_id
-  end
+      end
 end

@@ -20,7 +20,7 @@
 
     <div class="field">
       <%= form.label :visitante_id, "Verifique se o visitante ja está cadastrado",style: "display: block" %>
-      <%= form.select :setor_id, @visitantes.collect { |v| [v.nome, v.id] }, { prompt: "Visitante" }, { id: "setor_id" } %>
+      <%= form.select :visitante_id, @visitantes.collect { |v| [v.nome, v.id] }, { prompt: "Visitante" }, { id: "setor_id" } %>
     </div>
 
 
